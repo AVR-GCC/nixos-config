@@ -101,6 +101,7 @@
   environment.systemPackages = with pkgs; [
     oh-my-zsh
     flameshot
+    nvim
     pkgs.vimPlugins.nvchad
     brave
     git
