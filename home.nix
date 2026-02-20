@@ -36,6 +36,14 @@
     # '')
   ];
 
+  programs.neovim = {
+    enable = true;
+    extraPackages = with pkgs; [ gcc nodejs ];  # NvChad dependencies
+    plugins = with pkgs.vimPlugins; [ nvchad ];
+    extraLuaConfig = ''
+      vim.opt.runtimepath:prepend("${pkgs.vimPlugins.nvchad}")
+    '';
+  };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {

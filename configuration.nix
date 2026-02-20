@@ -101,8 +101,6 @@
   environment.systemPackages = with pkgs; [
     oh-my-zsh
     flameshot
-    neovim
-    pkgs.vimPlugins.nvchad
     brave
     git
     tmux
