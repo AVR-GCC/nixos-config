@@ -45,6 +45,11 @@
       providers.xclip.enable = true;
     };
 
+    opts = {
+      number = true;
+      relativenumber = true;
+    };
+
     globals.mapleader = " ";
 
     keymaps = [
