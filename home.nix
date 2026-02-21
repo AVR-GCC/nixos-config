@@ -97,7 +97,12 @@
 	options.desc = "Lazy git";
       }
     ];
+    extraPackages = with pkgs; [ nixd ];
     plugins = {
+      lsp = {
+        enable = true;
+        servers.nixd.enable = true;
+      };
       lualine.enable = true;
       neo-tree.enable = true;
       lazygit.enable = true;
