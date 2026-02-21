@@ -40,6 +40,11 @@
     enable = true;
     colorschemes.tokyonight.enable = true;
 
+    clipboard = {
+      register = "unnamedplus";
+      providers.xclip.enable = true;
+    };
+
     globals.mapleader = " ";
 
     keymaps = [
