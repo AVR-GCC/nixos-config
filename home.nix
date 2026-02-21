@@ -96,6 +96,12 @@
 	action = ":LazyGit<CR>";
 	options.desc = "Lazy git";
       }
+      {
+	mode = "n";
+	key = "<Esc>";
+	action = ":noh<CR>";
+	options.desc = "Clear search highlights";
+      }
     ];
     extraPackages = with pkgs; [ nixd ripgrep ];
     plugins = {
