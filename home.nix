@@ -97,7 +97,7 @@
 	options.desc = "Lazy git";
       }
     ];
-    extraPackages = with pkgs; [ nixd ];
+    extraPackages = with pkgs; [ nixd ripgrep ];
     plugins = {
       lsp = {
         enable = true;
@@ -108,7 +108,15 @@
       lazygit.enable = true;
       web-devicons.enable = true;
       bufferline.enable = true;
-      telescope.enable = true;
+      telescope = {
+	enable = true;
+	keymaps = {
+	  "<leader>ff" = "find_files";
+	  "<leader>fw" = "live_grep";
+	  "<leader>fb" = "buffers";
+	  "<leader>fh" = "help_tags";
+	};
+      };
       which-key.enable = true;
     };
   };
