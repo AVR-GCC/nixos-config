@@ -17,7 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -34,15 +34,73 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    lazygit
   ];
-
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
-    extraPackages = with pkgs; [ gcc nodejs ];  # NvChad dependencies
-    plugins = with pkgs.vimPlugins; [ nvchad ];
-    extraLuaConfig = ''
-      vim.opt.runtimepath:prepend("${pkgs.vimPlugins.nvchad}")
-    '';
+    colorschemes.tokyonight.enable = true;
+
+    globals.mapleader = " ";
+
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>e";
+        action = ":Neotree toggle<CR>";
+        options.desc = "Toggle file tree";
+      }
+      {
+        mode = "n";
+        key = "<leader>h";
+	action.__raw = ''
+	  function()
+	    vim.cmd("botright " .. math.floor(vim.o.lines * 0.3) .. "split")
+	    vim.cmd("terminal")
+	    vim.defer_fn(function()
+	      vim.cmd("startinsert")
+            end, 1)
+	  end
+	'';
+        options.desc = "Open horizontal terminal";
+      }
+      {
+        mode = "t";
+        key = "<C-w>";
+	action.__raw = ''
+	  function()
+	    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", false)
+          end
+	'';
+        options.desc = "Exit terminal mode";
+      }
+      {
+	mode = "n";
+	key = "<Tab>";
+	action = ":bnext<CR>";
+	options.desc = "Next buffer";
+      }
+      {
+	mode = "n";
+	key = "<S-Tab>";
+	action = ":bprev<CR>";
+	options.desc = "Previous buffer";
+      }
+      {
+	mode = "n";
+	key = "<leader>lg";
+	action = ":LazyGit<CR>";
+	options.desc = "Lazy git";
+      }
+    ];
+    plugins = {
+      lualine.enable = true;
+      neo-tree.enable = true;
+      lazygit.enable = true;
+      web-devicons.enable = true;
+      bufferline.enable = true;
+      telescope.enable = true;
+      which-key.enable = true;
+    };
   };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
