@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     lazygit
   ];
+
   programs.nixvim = {
     enable = true;
     colorschemes.tokyonight.enable = true;
@@ -137,6 +138,15 @@
       };
     };
   };
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      set -g default-terminal "tmux-256color"
+      set -ag terminal-overrides ",xterm-256color:RGB"
+      set -g terminal-overrides ",*256col*:Tc"
+    '';
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
