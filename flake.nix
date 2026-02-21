@@ -7,9 +7,13 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, nixvim, ... }: {
     nixosConfigurations.bar-nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -17,6 +21,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.users.bar = import ./home.nix;
+	  home-manager.sharedModules = [ nixvim.homeModules.nixvim ];
         }
       ];
     };
