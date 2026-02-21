@@ -21,7 +21,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.users.bar = import ./home.nix;
-	  home-manager.sharedModules = [ nixvim.homeModules.nixvim ];
+          home-manager.sharedModules = [ nixvim.homeModules.nixvim ];
         }
       ];
     };
