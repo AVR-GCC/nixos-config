@@ -95,8 +95,27 @@
         action = ":noh<CR>";
         options.desc = "Clear search highlights";
       }
+      {
+        mode = "n";
+        key = "<leader>ai";
+        action.__raw = ''
+          function()
+            local cwd = vim.fn.getcwd()
+            local check = vim.fn.system("tmux list-panes -a -F '#{pane_current_command}' | grep -c opencode")
+            check = check:gsub("%s+", "")
+            if check ~= "0" then
+              vim.fn.system("tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep opencode | awk '{print $1}' | xargs tmux kill-pane -t")
+            else
+              vim.fn.system("tmux split-window -h -l 25% -c '" .. cwd .. "' 'opencode'")
+            end
+          end
+        '';
+        options.desc = "Toggle opencode tmux pane";
+      }
     ];
-    extraPackages = with pkgs; [ nixd ripgrep ];
+
+    extraPackages = with pkgs; [ nixd ripgrep opencode lsof ];
+
     plugins = {
       lsp = {
         enable = true;
@@ -137,7 +156,12 @@
         settings.indent.enable = true;
       };
     };
+
+    extraConfigLua = ''
+      vim.g.opencode_opts = { port = 4321 }
+    '';
   };
+
   programs.tmux = {
     enable = true;
     extraConfig = ''
