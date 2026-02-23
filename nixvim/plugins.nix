@@ -24,7 +24,10 @@
   neo-tree.enable = true;
   lazygit.enable = true;
   web-devicons.enable = true;
-  bufferline.enable = true;
+  bufferline = {
+    enable = true;
+    settings.options.custom_filter.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/filter-terminal-buffer.lua";
+  };
   telescope = {
     enable = true;
     keymaps = {
