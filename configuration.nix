@@ -99,7 +99,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    oh-my-zsh
     flameshot
     brave
     git
@@ -110,14 +109,7 @@
   #  wget
   ];
 
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "nanotech";
-        plugins = [ "git" "sudo" ];
-    };
-  };
+  programs.zsh.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka

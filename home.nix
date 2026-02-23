@@ -18,8 +18,24 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    oh-my-zsh
     lazygit
   ];
+
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "nanotech";
+      plugins = [ "git" "sudo" ];
+    };
+    shellAliases = {
+      tmux = "tmux -u";
+    };
+    envExtra = ''
+      export TERM=xterm-256color
+    '';
+  };
 
   programs.nixvim = {
     enable = true;
