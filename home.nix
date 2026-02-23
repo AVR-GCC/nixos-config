@@ -113,6 +113,24 @@
       }
       {
         mode = "n";
+        key = "<leader>x";
+        action.__raw = ''
+          function()
+            local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+            local is_empty = vim.fn.bufname() == ''' and vim.fn.getbufvar(vim.fn.bufnr(), '&modified') == 0
+            if is_empty and #buffers <= 1 then
+              return
+            elseif #buffers > 1 then
+              vim.cmd('bp | bd #')
+            else
+              vim.cmd('enew | bd #')
+            end
+          end
+        '';
+        options.desc = "Close tab";
+      }
+      {
+        mode = "n";
         key = "<leader>ai";
         action.__raw = ''
           function()
