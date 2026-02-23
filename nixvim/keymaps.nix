@@ -10,25 +10,13 @@
   {
     mode = "n";
     key = "<leader>h";
-    action.__raw = ''
-        function()
-          vim.cmd("botright " .. math.floor(vim.o.lines * 0.3) .. "split")
-          vim.cmd("terminal")
-          vim.defer_fn(function()
-            vim.cmd("startinsert")
-          end, 1)
-        end
-        '';
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/open-terminal.lua";
     options.desc = "Open horizontal terminal";
   }
   {
     mode = "t";
     key = "<C-w>";
-    action.__raw = ''
-        function()
-          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", false)
-        end
-        '';
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/exit-terminal.lua";
     options.desc = "Exit terminal mode";
   }
   {
@@ -58,36 +46,13 @@
   {
     mode = "n";
     key = "<leader>x";
-    action.__raw = ''
-          function()
-            local buffers = vim.fn.getbufinfo({ buflisted = 1 })
-            local is_empty = vim.fn.bufname() == ''' and vim.fn.getbufvar(vim.fn.bufnr(), '&modified') == 0
-            if is_empty and #buffers <= 1 then
-              return
-            elseif #buffers > 1 then
-              vim.cmd('bp | bd #')
-            else
-              vim.cmd('enew | bd #')
-            end
-            end
-            '';
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/close-tab.lua";
     options.desc = "Close tab";
   }
   {
     mode = "n";
     key = "<leader>ai";
-    action.__raw = ''
-          function()
-            local cwd = vim.fn.getcwd()
-            local check = vim.fn.system("tmux list-panes -a -F '#{pane_current_command}' | grep -c opencode")
-            check = check:gsub("%s+", "")
-            if check ~= "0" then
-              vim.fn.system("tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep opencode | awk '{print $1}' | xargs tmux kill-pane -t")
-            else
-              vim.fn.system("tmux split-window -h -l 25% -c '" .. cwd .. "' 'opencode'")
-            end
-          end
-          '';
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/close-tab.lua";
     options.desc = "Toggle opencode tmux pane";
   }
 ]
