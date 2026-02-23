@@ -30,6 +30,9 @@
   };
   telescope = {
     enable = true;
+    settings.defaults.layout_strategy = "vertical";
+    settings.defaults.layout_config.prompt_position = "top";
+    settings.defaults.sorting_strategy = "ascending";
     keymaps = {
       "<leader>ff" = "find_files";
       "<leader>fw" = "live_grep";
