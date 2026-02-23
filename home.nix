@@ -220,6 +220,8 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    ANTHROPIC_API_KEY = builtins.getEnv "ANTHROPIC_API_KEY";
+    FLAKE_PATH = builtins.getEnv "FLAKE_PATH";
   };
 
   # Let Home Manager install and manage itself.
