@@ -55,4 +55,10 @@
     action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/toggle-ai-pane.lua";
     options.desc = "Toggle opencode tmux pane";
   }
+  {
+    mode = "v";
+    key = "<leader>ai";
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/ref-code-for-ai.lua";
+    options.desc = "Toggle opencode tmux pane";
+  }
 ]
