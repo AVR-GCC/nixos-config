@@ -52,7 +52,7 @@
   {
     mode = "n";
     key = "<leader>ai";
-    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/close-tab.lua";
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/toggle-ai-pane.lua";
     options.desc = "Toggle opencode tmux pane";
   }
 ]
