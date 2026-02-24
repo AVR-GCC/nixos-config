@@ -61,4 +61,10 @@
     action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/ref-code-for-ai.lua";
     options.desc = "Toggle opencode tmux pane";
   }
+  {
+    mode = "n";
+    key = "<leader>r";
+    action = "viw\"_dhp";
+    options.desc = "Replace word";
+  }
 ]
