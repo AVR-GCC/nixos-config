@@ -25,7 +25,7 @@ All inputs follow `nixpkgs` to ensure a single consistent package set.
 ├── flake.nix                    # Flake entry point
 ├── flake.lock                   # Pinned dependency versions
 ├── configuration.nix            # System-level NixOS configuration
-├── hardware-configuration.nix   # Auto-generated hardware config
+├── hardware-configuration.nix   # Auto-copied from host at build time (git-ignored)
 ├── home.nix                     # Home Manager user configuration
 └── nixvim/
     ├── nixvim.nix               # NixVim editor configuration
@@ -85,7 +85,11 @@ chmod +x build.sh
 ./build.sh
 ```
 
-This sources `local.env`, then runs `sudo nixos-rebuild switch --flake .#bar-nixos --impure`, passing `FLAKE_PATH` and `ANTHROPIC_API_KEY` through to the Nix evaluation environment.
+The build script will:
+
+1. Source `local.env` to load environment variables.
+2. Copy `/etc/nixos/hardware-configuration.nix` from the running machine into the repo, so the flake always uses the correct hardware config for the current host.
+3. Run `sudo nixos-rebuild switch --flake .#bar-nixos --impure`, passing `FLAKE_PATH` and `ANTHROPIC_API_KEY` through to the Nix evaluation environment.
 
 The `--impure` flag is required because the configuration uses `builtins.getEnv` to read environment variables at evaluation time for resolving file imports and injecting secrets.
 
@@ -154,7 +158,7 @@ The NixVim config includes a tmux-based integration with [opencode](https://open
 
 To adapt this configuration for your own machine:
 
-1. Replace `hardware-configuration.nix` with one generated for your hardware (typically found at `/etc/nixos/hardware-configuration.nix` after a NixOS install).
+1. Ensure your machine has a valid `/etc/nixos/hardware-configuration.nix` (generated automatically during NixOS installation, or via `nixos-generate-config`). The build script copies it in automatically.
 2. Update the hostname and user references (`bar`, `bar-nixos`) throughout `flake.nix`, `configuration.nix`, and `home.nix`.
 3. Adjust locale, timezone, keyboard layouts, and package lists to your preference.
 4. Set `FLAKE_PATH` in `local.env` to wherever you cloned the repository.
