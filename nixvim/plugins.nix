@@ -45,4 +45,5 @@
     enable = true;
     settings.indent.enable = true;
   };
+  alpha = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/alpha.nix" {};
 }
