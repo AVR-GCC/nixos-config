@@ -2,7 +2,7 @@
 
 {
     enable = true;
-    colorschemes.tokyonight.enable = true;
+    colorschemes.gruvbox-material.enable = true;
 
     clipboard = {
       register = "unnamedplus";
