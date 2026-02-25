@@ -20,6 +20,12 @@
   home.packages = with pkgs; [
     oh-my-zsh
     lazygit
+    flameshot
+    brave
+    git
+    tmux
+    qbittorrent
+    copyq
   ];
 
   programs.zsh = {
