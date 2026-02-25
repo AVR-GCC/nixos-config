@@ -1,8 +1,6 @@
 function()
   local buffers = vim.fn.getbufinfo({ buflisted = 1 })
   local is_empty = vim.fn.bufname() == '\'' and vim.fn.getbufvar(vim.fn.bufnr(), '&modified') == 0
-  print(is_empty)
-  print(buffers)
   if is_empty and #buffers <= 1 then
     return
   elseif #buffers > 1 then
