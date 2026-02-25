@@ -21,9 +21,9 @@ function()
     for i = 1, #path do
       local char = path:sub(i, i)
       os.execute("tmux send-keys -t ':.+1' -l '" .. char:gsub("'", "'\\''") .. "'")
-      vim.loop.sleep(20)
+      vim.loop.sleep(1)
     end
-    vim.loop.sleep(200)
+    vim.loop.sleep(120)
     os.execute("tmux send-keys -t ':.+1' Enter")
     os.execute("tmux send-keys -t ':.+1' -l '" .. line_numbers:gsub("'", "'\\''") .. "'")
     os.execute("tmux send-keys -t ':.+1' C-j")
