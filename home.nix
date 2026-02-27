@@ -21,6 +21,7 @@
     dbeaver-bin
     postgresql.lib
     postgresql
+    nodejs
     oh-my-zsh
     lazygit
     flameshot
