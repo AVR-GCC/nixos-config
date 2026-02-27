@@ -19,8 +19,11 @@
   # environment.
   home.packages = with pkgs; [
     dbeaver-bin
+    pkg-config
     postgresql.lib
     postgresql
+    rustup
+    gcc
     nodejs
     oh-my-zsh
     lazygit
