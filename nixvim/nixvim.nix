@@ -27,5 +27,6 @@
 
     extraConfigLua = ''
       vim.g.opencode_opts = { port = 4321 }
+      package.path = package.path .. ";${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/?.lua"
     '';
   }

@@ -34,13 +34,13 @@
   {
     mode = "n";
     key = "<Tab>";
-    action = ":bnext<CR>";
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/next-tab.lua";
     options.desc = "Next buffer";
   }
   {
     mode = "n";
     key = "<S-Tab>";
-    action = ":bprev<CR>";
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/prev-tab.lua";
     options.desc = "Previous buffer";
   }
   {
