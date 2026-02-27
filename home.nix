@@ -18,6 +18,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    dbeaver-bin
+    postgresql.lib
+    postgresql
     oh-my-zsh
     lazygit
     flameshot
@@ -89,6 +92,9 @@
     # EDITOR = "emacs";
     ANTHROPIC_API_KEY = builtins.getEnv "ANTHROPIC_API_KEY";
     FLAKE_PATH = builtins.getEnv "FLAKE_PATH";
+    PKG_CONFIG_PATH = "${pkgs.postgresql.lib}/lib/pkgconfig";
+    LD_LIBRARY_PATH = "${pkgs.postgresql.lib}/lib";
+    RUSTFLAGS = "-L${pkgs.postgresql.lib}/lib";
   };
 
   # Let Home Manager install and manage itself.

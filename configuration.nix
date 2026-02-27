@@ -99,6 +99,15 @@
   #  wget
   ];
 
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "bar" ];
+    ensureUsers = [{
+      name = "bar";
+      ensureDBOwnership = true;
+    }];
+  };
+
   programs.zsh.enable = true;
 
   fonts.packages = with pkgs; [
