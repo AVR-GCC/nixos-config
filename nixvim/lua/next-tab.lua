@@ -1,1 +1,1 @@
-function() require("./cycle-buffer")("next") end
+function() require("cycle-buffer")("next") end
