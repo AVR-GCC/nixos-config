@@ -1,9 +1,7 @@
 function()
-  local cwd = vim.fn.getcwd()
-  local check = vim.fn.system("tmux list-panes -a -F '#{pane_current_command}' | grep -c opencode")
-  check = check:gsub("%s+", "")
+  local check = require("check-ai-tab-open")()
   if check == "0" then
-    vim.fn.system("tmux split-window -h -l 25% -c '" .. cwd .. "' 'opencode'")
+    require("open-ai-pane")()
     vim.loop.sleep(2500)
     os.execute("tmux select-pane -t ':.+1'")
   end
