@@ -2,6 +2,18 @@
 
 [
   {
+    mode = "i";
+    key = "<Find>";
+    action = "<Esc>^i";
+    options.desc = "Go to start of line";
+  }
+  {
+    mode = "i";
+    key = "<Select>";
+    action = "<Esc>$a";
+    options.desc = "Go to end of line";
+  }
+  {
     mode = "n";
     key = "<leader>e";
     action = ":Neotree toggle<CR>";
