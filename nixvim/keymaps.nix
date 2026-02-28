@@ -79,4 +79,22 @@
     action = "viw\"_dhp";
     options.desc = "Replace word";
   }
+  {
+    mode = "n";
+    key = "<leader>db";
+    action = ":DapToggleBreakpoint<CR>";
+    options.desc = "Toggle breakpoint";
+  }
+  {
+    mode = "n";
+    key = "<leader>dc";
+    action = ":DapContinue<CR>";
+    options.desc = "Continue";
+  }
+  {
+    mode = "n";
+    key = "<leader>du";
+    action.__raw = ''function() require("dapui").toggle() end'';
+    options.desc = "Toggle DAP UI";
+  }
 ]

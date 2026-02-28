@@ -18,13 +18,16 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    lsof
     dbeaver-bin
     pkg-config
     postgresql.lib
     postgresql
     rustup
     gcc
+    lldb
     nodejs
+    vscode-js-debug
     oh-my-zsh
     lazygit
     flameshot
@@ -99,6 +102,7 @@
     PKG_CONFIG_PATH = "${pkgs.postgresql.lib}/lib/pkgconfig";
     LD_LIBRARY_PATH = "${pkgs.postgresql.lib}/lib";
     RUSTFLAGS = "-L${pkgs.postgresql.lib}/lib";
+    EDGE_PATH = "${pkgs.brave}/bin/brave";
   };
 
   # Let Home Manager install and manage itself.

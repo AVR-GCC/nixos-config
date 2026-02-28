@@ -23,10 +23,11 @@
 
     extraPackages = with pkgs; [ nixd ripgrep opencode lsof ];
 
-    plugins = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/plugins.nix" {};
+    plugins = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/plugins.nix" { inherit pkgs; };
 
     extraConfigLua = ''
       vim.g.opencode_opts = { port = 4321 }
       package.path = package.path .. ";${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/?.lua"
+      require("dapui").setup()
     '';
   }
