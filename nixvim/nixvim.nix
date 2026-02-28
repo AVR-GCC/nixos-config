@@ -29,6 +29,7 @@
       vim.g.opencode_opts = { port = 4321 }
       package.path = package.path .. ";${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/?.lua"
       require("dapui").setup()
+      require("snippets")
       require("luasnip.loaders.from_vscode").lazy_load()
     '';
   }
