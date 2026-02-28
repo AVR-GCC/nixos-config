@@ -20,20 +20,24 @@
 
   cmp = {
     enable = true;
-    settings.sources = [
-      { name = "nvim_lsp"; }
-      { name = "buffer"; }
-      { name = "path"; }
-    ];
-    settings.mapping = {
-      "<C-Space>" = "cmp.mapping.complete()";
-      "<C-y>" = "cmp.mapping.confirm({ select = true })";
-      "<C-n>" = "cmp.mapping.select_next_item()";
-      "<C-p>" = "cmp.mapping.select_prev_item()";
-      "<C-e>" = "cmp.mapping.abort()";
+    settings = {
+      sources = [
+        { name = "nvim_lsp"; }
+        { name = "luasnip"; }
+        { name = "buffer"; }
+        { name = "path"; }
+      ];
+      mapping = {
+        "<C-Space>" = "cmp.mapping.complete()";
+        "<C-y>" = "cmp.mapping.confirm({ select = true })";
+        "<C-n>" = "cmp.mapping.select_next_item()";
+        "<C-p>" = "cmp.mapping.select_prev_item()";
+        "<C-e>" = "cmp.mapping.abort()";
+      };
     };
   };
 
+  friendly-snippets.enable = true;
   rainbow-delimiters.enable = true;
   nvim-autopairs.enable = true;
   lualine.enable = true;
