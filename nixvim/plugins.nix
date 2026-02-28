@@ -10,6 +10,11 @@
         installCargo = false;
         installRustc = false;
       };
+      ts_ls = {
+        enable = true;
+        settings.typescript.preferences.includeCompletionsForModuleExports = true;
+        settings.javascript.preferences.includeCompletionsForModuleExports = true;
+      };
     };
   };
 
