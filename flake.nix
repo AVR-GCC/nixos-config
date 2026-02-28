@@ -20,7 +20,18 @@
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {
-          home-manager.users.bar = import ./home.nix;
+          home-manager.users.bar = import ./home-home.nix;
+          home-manager.sharedModules = [ nixvim.homeModules.nixvim ];
+        }
+      ];
+    };
+    nixosConfigurations.bar-work = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.users.bar = import ./home-work.nix;
           home-manager.sharedModules = [ nixvim.homeModules.nixvim ];
         }
       ];
