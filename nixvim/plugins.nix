@@ -34,6 +34,7 @@
     };
   };
 
+  rainbow-delimiters.enable = true;
   nvim-autopairs.enable = true;
   lualine.enable = true;
   neo-tree.enable = true;
