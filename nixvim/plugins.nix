@@ -12,6 +12,7 @@
       };
     };
   };
+
   cmp = {
     enable = true;
     settings.sources = [
@@ -27,6 +28,7 @@
       "<C-e>" = "cmp.mapping.abort()";
     };
   };
+
   lualine.enable = true;
   neo-tree.enable = true;
   lazygit.enable = true;
@@ -35,6 +37,7 @@
     enable = true;
     settings.options.custom_filter.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/filter-terminal-buffer.lua";
   };
+
   telescope = {
     enable = true;
     settings.defaults.layout_strategy = "vertical";
@@ -47,12 +50,14 @@
       "<leader>fh" = "help_tags";
     };
   };
+
   which-key.enable = true;
   treesitter = {
     enable = true;
     settings.indent.enable = true;
   };
   alpha = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/alpha.nix" {};
+
   dap = 
     let
       nodeConfig = [
@@ -118,6 +123,7 @@
         ];
       };
     };
+
 
   dap-ui.enable = true;
   dap-virtual-text.enable = true;
