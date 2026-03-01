@@ -99,15 +99,6 @@
   #  wget
   ];
 
-  services.postgresql = {
-    enable = true;
-    ensureDatabases = [ "bar" ];
-    ensureUsers = [{
-      name = "bar";
-      ensureDBOwnership = true;
-    }];
-  };
-
   programs.zsh.enable = true;
 
   fonts.packages = with pkgs; [
@@ -140,4 +131,17 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
 
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "bar" ];
+    ensureUsers = [{
+      name = "bar";
+      ensureDBOwnership = true;
+    }];
+  };
+
+  services.redis.servers."" = {
+    enable = true;
+    port = 6379;
+  };
 }
