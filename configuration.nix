@@ -82,7 +82,7 @@
   users.users.bar = {
     isNormalUser = true;
     description = "Bar";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
@@ -170,5 +170,16 @@
   services.redis.servers."" = {
     enable = true;
     port = 6379;
+  };
+
+  virtualisation.docker.enable = true;
+
+  virtualisation.oci-containers = {
+    backend = "docker";
+    containers.mongodb = {
+      image = "mongo:latest";
+      ports = [ "27017:27017" ];
+      volumes = [ "mongodb_data:/data/db" ];
+    };
   };
 }
