@@ -138,7 +138,24 @@
       name = "bar";
       ensureDBOwnership = true;
     }];
+    # 1. Tell Postgres to use SSL and where to find the certs
+    settings = {
+      ssl = "on";
+      ssl_cert_file = "/var/lib/postgresql/server.crt";
+      ssl_key_file = "/var/lib/postgresql/server.key";
+    };
   };
+  systemd.services.postgresql.preStart = pkgs.lib.mkAfter ''
+    if [ ! -f /var/lib/postgresql/server.crt ]; then
+      ${pkgs.openssl}/bin/openssl req -new -x509 -days 3650 -nodes -text \
+        -out /var/lib/postgresql/server.crt \
+        -keyout /var/lib/postgresql/server.key \
+        -subj "/CN=localhost"
+
+      # Postgres requires strict permissions on the private key
+      chmod 0600 /var/lib/postgresql/server.key
+    fi
+  '';
 
   services.redis.servers."" = {
     enable = true;
