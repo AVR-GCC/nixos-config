@@ -133,10 +133,14 @@
 
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "bar" ];
     ensureUsers = [{
       name = "bar";
-      ensureDBOwnership = true;
+      # This grants the user the admin rights needed to mess with the postgres DB
+      ensureClauses = {
+        superuser = true;
+        createdb = true;
+        createrole = true;
+      };
     }];
     # 1. Tell Postgres to use SSL and where to find the certs
     settings = {
