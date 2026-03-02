@@ -144,6 +144,12 @@
       ssl_cert_file = "/var/lib/postgresql/server.crt";
       ssl_key_file = "/var/lib/postgresql/server.key";
     };
+    authentication = pkgs.lib.mkOverride 10 ''
+      # type  database  user  address         auth-method
+      local   all       all                   trust
+      host    all       all   127.0.0.1/32    trust
+      host    all       all   ::1/128         trust
+    '';
   };
   systemd.services.postgresql.preStart = pkgs.lib.mkAfter ''
     if [ ! -f /var/lib/postgresql/server.crt ]; then
