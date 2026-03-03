@@ -83,7 +83,7 @@
           type = "pwa-node";
           request = "attach";
           name = "Attach to process";
-          port = 8081;
+          port = 9229;
           cwd = "\${workspaceFolder}";
           sourceMaps = true;
           sourceMapPathOverrides = {
