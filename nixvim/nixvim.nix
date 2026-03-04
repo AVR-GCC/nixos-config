@@ -25,6 +25,8 @@
 
     plugins = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/plugins.nix" { inherit pkgs; };
 
+    extraPlugins = [ pkgs.vimPlugins.satellite-nvim ];
+
     extraConfigLua = ''
       vim.g.opencode_opts = { port = 4321 }
       package.path = package.path .. ";${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/?.lua"
@@ -52,5 +54,24 @@
       })
       require("snippets")
       require("luasnip.loaders.from_vscode").lazy_load()
+      require('satellite').setup({
+        current_only = false,
+        winblend = 50,
+        zindex = 40,
+        excluded_filetypes = { "neo-tree", "NvimTree", "TelescopePrompt", "terminal", "toggleterm", "nofile" },
+        width = 2,
+        handlers = {
+          cursor = { enable = true },
+          diagnostic = {
+            enable = true,
+            signs = { "-", "=" },
+            min_severity = vim.diagnostic.severity.HINT,
+          },
+          gitsigns = { enable = true },
+          marks = { enable = false },
+          quickfix = { enable = false },
+          search = { enable = false },
+        },
+      })
     '';
   }
