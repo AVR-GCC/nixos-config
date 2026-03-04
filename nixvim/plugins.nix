@@ -37,6 +37,11 @@
     };
   };
 
+  gitsigns = {
+    enable = true;
+    settings.current_line_blame = true;
+  };
+
   friendly-snippets.enable = true;
   rainbow-delimiters.enable = true;
   nvim-autopairs.enable = true;

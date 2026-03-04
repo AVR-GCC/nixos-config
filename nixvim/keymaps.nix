@@ -51,6 +51,24 @@
   }
   {
     mode = "n";
+    key = "<leader>gb";
+    action = "<cmd>Gitsigns blame_line<CR>";
+    options = {
+      desc = "Git blame line";
+      silent = true;
+    };
+  }
+  {
+    mode = "n";
+    key = "<leader>gB";
+    action = "<cmd>Gitsigns blame<CR>";
+    options = {
+      desc = "Git blame file";
+      silent = true;
+    };
+  }
+  {
+    mode = "n";
     key = "<Esc>";
     action = ":noh<CR>";
     options.desc = "Clear search highlights";
