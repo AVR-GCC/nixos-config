@@ -97,4 +97,20 @@
     action.__raw = ''function() require("dapui").toggle() end'';
     options.desc = "Toggle DAP UI";
   }
+  {
+    mode = "n";
+    key = "<leader>do";
+    action = "<cmd>lua require('dap').step_over()<cr>";
+    options = {
+      desc = "DAP Step Over";
+    };
+  }
+  {
+    mode = "n";
+    key = "<leader>di";
+    action = "<cmd>lua require('dap').step_into()<cr>";
+    options = {
+      desc = "DAP Step Into";
+    };
+  }
 ]
