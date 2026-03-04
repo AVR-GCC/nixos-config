@@ -81,6 +81,12 @@
   }
   {
     mode = "n";
+    key = "<leader>gd";
+    action = ":lua vim.lsp.buf.definition()<CR>";
+    options.desc = "Go to definition";
+  }
+  {
+    mode = "n";
     key = "<leader>db";
     action = ":DapToggleBreakpoint<CR>";
     options.desc = "Toggle breakpoint";
