@@ -4,7 +4,7 @@ source "$SCRIPT_DIR/local.env"
 
 CONFIG="${1:-bar-nixos}"
 cp /etc/nixos/hardware-configuration.nix "$SCRIPT_DIR/hardware-configuration.nix"
-git -C "$SCRIPT_DIR" add -Af
+git -C "$SCRIPT_DIR" add -A
 if ! git -C "$SCRIPT_DIR" diff --cached --quiet; then
   git -C "$SCRIPT_DIR" commit -m "temp: add hardware-configuration.nix for build"
   TEMP_COMMITTED=1
