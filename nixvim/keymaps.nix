@@ -105,7 +105,7 @@
   }
   {
     mode = "n";
-    key = "<leader>do";
+    key = "<leader>o";
     action = "<cmd>lua require('dap').step_over()<cr>";
     options = {
       desc = "DAP Step Over";
@@ -113,7 +113,7 @@
   }
   {
     mode = "n";
-    key = "<leader>di";
+    key = "<leader>i";
     action = "<cmd>lua require('dap').step_into()<cr>";
     options = {
       desc = "DAP Step Into";
