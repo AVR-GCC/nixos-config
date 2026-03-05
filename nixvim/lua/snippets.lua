@@ -26,6 +26,8 @@ local logg = s("logg", {
 })
 
 a("all", { pr })
+a("javascript", { log, logg })
+a("javascriptreact", { log, logg })
 a("typescript", { log, logg })
 a("typescriptreact", { log, logg })
 
