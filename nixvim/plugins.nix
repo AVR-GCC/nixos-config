@@ -1,6 +1,13 @@
 { pkgs, ... }:
 
 {
+  treesitter = {
+    enable = true;
+    settings.indent.enable = true;
+    nixvimInjections = true;
+    grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+  };
+
   lsp = {
     enable = true;
     servers = {
@@ -68,10 +75,6 @@
   };
 
   which-key.enable = true;
-  treesitter = {
-    enable = true;
-    settings.indent.enable = true;
-  };
   alpha = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/alpha.nix" {};
 
   dap = 
