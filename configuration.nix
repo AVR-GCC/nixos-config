@@ -167,11 +167,6 @@
     fi
   '';
 
-  services.redis.servers."" = {
-    enable = true;
-    port = 6379;
-  };
-
   virtualisation.docker.enable = true;
 
   virtualisation.oci-containers = {

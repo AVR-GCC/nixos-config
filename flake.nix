@@ -29,6 +29,7 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
+        ./redis.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.users.bar = import ./home-work.nix;
