@@ -24,12 +24,8 @@
     postman
     lsof
     dbeaver-bin
-    pkg-config
     postgresql.lib
     postgresql
-    rustup
-    gcc
-    lldb
     nodejs
     vscode-js-debug
     oh-my-zsh
@@ -141,7 +137,6 @@
     FLAKE_PATH = builtins.getEnv "FLAKE_PATH";
     PKG_CONFIG_PATH = "${pkgs.postgresql.lib}/lib/pkgconfig";
     LD_LIBRARY_PATH = "${pkgs.postgresql.lib}/lib";
-    RUSTFLAGS = "-L${pkgs.postgresql.lib}/lib";
     EDGE_PATH = "${pkgs.brave}/bin/brave";
   };
 
