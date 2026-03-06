@@ -168,13 +168,4 @@
   '';
 
   virtualisation.docker.enable = true;
-
-  virtualisation.oci-containers = {
-    backend = "docker";
-    containers.mongodb = {
-      image = "mongo:latest";
-      ports = [ "27017:27017" ];
-      volumes = [ "mongodb_data:/data/db" ];
-    };
-  };
 }
