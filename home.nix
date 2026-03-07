@@ -29,12 +29,10 @@
     vscode-js-debug
     oh-my-zsh
     lazygit
-    flameshot
     brave
     git
     tmux
     qbittorrent
-    copyq
   ];
 
   programs.zsh = {
@@ -69,34 +67,6 @@
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
       bind-key -T copy-mode-vi i send-keys -X cancel
     '';
-  };
-
-  systemd.user.services.flameshot = {
-    Unit = {
-      Description = "Flameshot screenshot tool";
-      After = [ "graphical-session.target" ];
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.flameshot}/bin/flameshot";
-      Restart = "on-failure";
-    };
-  };
-
-  systemd.user.services.copyq = {
-    Unit = {
-      Description = "CopyQ clipboard manager";
-      After = [ "graphical-session.target" ];
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.copyq}/bin/copyq";
-      Restart = "on-failure";
-    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
