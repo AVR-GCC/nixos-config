@@ -3,6 +3,7 @@
 {
   home-manager.users.bar = { pkgs, ... }: {
     home.packages = with pkgs; [
+      vscode-js-debug
       nodejs
     ];
 

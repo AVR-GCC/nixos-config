@@ -23,7 +23,6 @@
     pkgs.vimPlugins.satellite-nvim
     postman
     lsof
-    vscode-js-debug
     oh-my-zsh
     lazygit
     brave
