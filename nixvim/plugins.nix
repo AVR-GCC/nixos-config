@@ -12,11 +12,6 @@
     enable = true;
     servers = {
       nixd.enable = true;
-      ts_ls = {
-        enable = true;
-        settings.typescript.preferences.includeCompletionsForModuleExports = true;
-        settings.javascript.preferences.includeCompletionsForModuleExports = true;
-      };
     };
   };
 
@@ -72,57 +67,9 @@
   which-key.enable = true;
   alpha = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/alpha.nix" {};
 
-  dap = 
-    let
-      nodeConfig = [
-        {
-          type = "pwa-node";
-          request = "launch";
-          name = "Launch file";
-          program = "\${file}";
-          cwd = "\${workspaceFolder}";
-        }
-        {
-          type = "pwa-node";
-          request = "attach";
-          name = "Attach to process";
-          port = 9229;
-          cwd = "\${workspaceFolder}";
-          sourceMaps = true;
-          sourceMapPathOverrides = {
-            "../../app/*" = "\${workspaceFolder}/app/*";
-            "../app/*" = "\${workspaceFolder}/app/*";
-          };
-          # outFiles = [ "\${workspaceFolder}/**/*.js" "\${workspaceFolder}/**/*.jsx" ];
-          # resolveSourceMapLocations = [ "\${workspaceFolder}/**" "!**/node_modules/**" ];
-        }
-      ];
-    in
-      {
-      enable = true;
-      adapters = {
-        executables = {
-          "node" = {
-            command = "node";
-            args = [ "${pkgs.vscode-js-debug}/lib/node_modules/js-debug/dist/src/dapDebugServer.js" "9230" ];
-          };
-        };
-        servers."pwa-node" = {
-          host = "localhost";
-          port = 9230;
-          executable = {
-            command = "node";
-            args = [ "${pkgs.vscode-js-debug}/lib/node_modules/js-debug/dist/src/dapDebugServer.js" "9230" ];
-          };
-        };
-      };
-      configurations = {
-        javascript = nodeConfig;
-        typescript = nodeConfig;
-        typescriptreact = nodeConfig;
-      };
-    };
-
+  dap = {
+    enable = true;
+  };
 
   dap-ui.enable = true;
   dap-virtual-text.enable = true;

@@ -18,6 +18,7 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
+        ./node.nix
         ./rust.nix
         home-manager.nixosModules.home-manager
         {
@@ -30,6 +31,7 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
+        ./node.nix
         ./mongodb.nix
         ./redis.nix
         home-manager.nixosModules.home-manager

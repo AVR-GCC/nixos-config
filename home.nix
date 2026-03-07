@@ -26,7 +26,6 @@
     dbeaver-bin
     postgresql.lib
     postgresql
-    nodejs
     vscode-js-debug
     oh-my-zsh
     lazygit
