@@ -120,17 +120,6 @@
         javascript = nodeConfig;
         typescript = nodeConfig;
         typescriptreact = nodeConfig;
-        rust = [
-          {
-            type = "lldb";
-            request = "launch";
-            name = "Debug Rust";
-            program = "\${workspaceFolder}/target/debug/LifeInOrderBackend";
-            # program = "\${workspaceFolder}/target/debug/\${workspaceFolderBasename}";
-            args = [];
-            cwd = "\${workspaceFolder}";
-          }
-        ];
       };
     };
 
