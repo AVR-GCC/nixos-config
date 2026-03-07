@@ -18,11 +18,14 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-        ./postgres.nix
-        ./node.nix
-        ./rust.nix
-        ./copyq.nix
-        ./flameshot.nix
+        # Databases
+        ./modules/postgres.nix
+        # Languages
+        ./modules/node.nix
+        ./modules/rust.nix
+        # Utilities
+        ./modules/copyq.nix
+        ./modules/flameshot.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.users.bar = import ./home.nix;
@@ -34,12 +37,15 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-        ./postgres.nix
-        ./mongodb.nix
-        ./redis.nix
-        ./node.nix
-        ./copyq.nix
-        ./flameshot.nix
+        # Databases
+        ./modules/postgres.nix
+        ./modules/mongodb.nix
+        ./modules/redis.nix
+        # Languages
+        ./modules/node.nix
+        # Utilities
+        ./modules/copyq.nix
+        ./modules/flameshot.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.users.bar = import ./home.nix;
