@@ -12,11 +12,6 @@
     enable = true;
     servers = {
       nixd.enable = true;
-      rust_analyzer = {
-        enable = true;
-        installCargo = false;
-        installRustc = false;
-      };
       ts_ls = {
         enable = true;
         settings.typescript.preferences.includeCompletionsForModuleExports = true;
@@ -107,10 +102,6 @@
       enable = true;
       adapters = {
         executables = {
-          "lldb" = {
-            # command = "${pkgs.lldb}/bin/lldb-dap";
-            command = "/nix/store/yx7x8kzpqjnkz8xvwvj7mvw6nw1k0b8w-lldb-21.1.7/bin/lldb-dap";
-          };
           "node" = {
             command = "node";
             args = [ "${pkgs.vscode-js-debug}/lib/node_modules/js-debug/dist/src/dapDebugServer.js" "9230" ];
