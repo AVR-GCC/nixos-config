@@ -21,6 +21,7 @@
         ./node.nix
         ./rust.nix
         ./copyq.nix
+        ./flameshot.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.users.bar = import ./home.nix;
@@ -36,6 +37,7 @@
         ./mongodb.nix
         ./redis.nix
         ./copyq.nix
+        ./flameshot.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.users.bar = import ./home.nix;
