@@ -23,9 +23,6 @@
     pkgs.vimPlugins.satellite-nvim
     postman
     lsof
-    dbeaver-bin
-    postgresql.lib
-    postgresql
     vscode-js-debug
     oh-my-zsh
     lazygit
@@ -104,8 +101,6 @@
     # EDITOR = "emacs";
     ANTHROPIC_API_KEY = builtins.getEnv "ANTHROPIC_API_KEY";
     FLAKE_PATH = builtins.getEnv "FLAKE_PATH";
-    PKG_CONFIG_PATH = "${pkgs.postgresql.lib}/lib/pkgconfig";
-    LD_LIBRARY_PATH = "${pkgs.postgresql.lib}/lib";
     EDGE_PATH = "${pkgs.brave}/bin/brave";
   };
 

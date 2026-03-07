@@ -18,6 +18,7 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
+        ./postgres.nix
         ./node.nix
         ./rust.nix
         ./copyq.nix
@@ -33,9 +34,10 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-        ./node.nix
+        ./postgres.nix
         ./mongodb.nix
         ./redis.nix
+        ./node.nix
         ./copyq.nix
         ./flameshot.nix
         home-manager.nixosModules.home-manager
