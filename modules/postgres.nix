@@ -9,6 +9,7 @@
     ];
 
     home.sessionVariables = {
+      DBEAVER_ARGS = "-Dswt.dark=true";
       PKG_CONFIG_PATH = "${pkgs.postgresql.lib}/lib/pkgconfig";
       LD_LIBRARY_PATH = "${pkgs.postgresql.lib}/lib";
     };
