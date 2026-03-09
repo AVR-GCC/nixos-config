@@ -1,8 +1,8 @@
 function()
   local check = require("check-ai-tab-open")()
-  if check ~= "0" then
-    require("close-ai-pane")()
-  else
+  if check == "" then
     require("open-ai-pane")()
+  else
+    require("close-ai-pane")()
   end
 end
