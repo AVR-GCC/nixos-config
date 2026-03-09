@@ -20,6 +20,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    pkgs.qogir-icon-theme
+    pkgs.spacx-gtk-theme
     pkgs.vimPlugins.satellite-nvim
     postman
     lsof
@@ -101,6 +103,24 @@
     ANTHROPIC_API_KEY = builtins.getEnv "ANTHROPIC_API_KEY";
     FLAKE_PATH = builtins.getEnv "FLAKE_PATH";
     EDGE_PATH = "${pkgs.brave}/bin/brave";
+  };
+
+  home.pointerCursor = {
+    name = "gruppled_black";
+    package = pkgs.gruppled-black-cursors;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Spacx";
+      package = pkgs.spacx-gtk-theme;
+    };
+    iconTheme = {
+      name = "Qogir-ubuntu-dark";
+      package = pkgs.qogir-icon-theme;
+    };
   };
 
   # Let Home Manager install and manage itself.
