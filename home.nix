@@ -24,6 +24,7 @@
     pkgs.spacx-gtk-theme
     pkgs.vimPlugins.satellite-nvim
     postman
+    xclip
     lsof
     oh-my-zsh
     lazygit
@@ -62,7 +63,7 @@
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi V send-keys -X select-line
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
       bind-key -T copy-mode-vi i send-keys -X cancel
     '';
   };
