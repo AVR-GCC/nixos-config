@@ -32,6 +32,7 @@
     git
     tmux
     qbittorrent
+    ngrok
   ];
 
   programs.zsh = {
