@@ -14,3 +14,6 @@ if [ -n "$TEMP_COMMITTED" ]; then
   git -C "$SCRIPT_DIR" reset --soft HEAD~1
   git -C "$SCRIPT_DIR" reset hardware-configuration.nix
 fi
+gsettings set org.cinnamon.desktop.interface cursor-theme "gruppled_black"
+gsettings set org.cinnamon.desktop.interface icon-theme "Qogir-Ubuntu-Dark"
+gsettings set org.cinnamon.desktop.interface gtk-theme "spacx"
