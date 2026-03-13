@@ -19,6 +19,11 @@
 
     globals.mapleader = " ";
 
+    diagnostic.settings = {
+      underline = true;
+      virtual_text = true;
+    };
+
     keymaps = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/keymaps.nix" {};
 
     extraPackages = with pkgs; [ nixd ripgrep opencode lsof ];
