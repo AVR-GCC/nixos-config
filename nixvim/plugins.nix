@@ -73,4 +73,12 @@
 
   dap-ui.enable = true;
   dap-virtual-text.enable = true;
+
+  lsp-signature = {
+    enable = true;
+    settings = {
+      hint_enable = false;
+      handler_opts.border = "rounded";
+    };
+  };
 }
