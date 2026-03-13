@@ -105,6 +105,12 @@
   }
   {
     mode = "n";
+    key = "<leader>rn";
+    action = ":lua vim.lsp.buf.rename()<CR>";
+    options.desc = "Rename symbol";
+  }
+  {
+    mode = "n";
     key = "<leader>ca";
     action = ":lua vim.lsp.buf.code_action()<CR>";
     options.desc = "Code action";
