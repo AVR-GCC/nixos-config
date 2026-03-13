@@ -5,6 +5,7 @@
     home.packages = with pkgs; [
       vscode-js-debug
       nodejs
+      vscode-langservers-extracted
     ];
 
     programs.nixvim = {
@@ -12,6 +13,10 @@
         enable = true;
         settings.typescript.preferences.includeCompletionsForModuleExports = true;
         settings.javascript.preferences.includeCompletionsForModuleExports = true;
+      };
+
+      plugins.lsp.servers.eslint = {
+        enable = true;
       };
 
       plugins.dap =
