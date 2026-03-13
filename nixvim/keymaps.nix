@@ -105,6 +105,12 @@
   }
   {
     mode = "n";
+    key = "<leader>ca";
+    action = ":lua vim.lsp.buf.code_action()<CR>";
+    options.desc = "Code action";
+  }
+  {
+    mode = "n";
     key = "<leader>db";
     action = ":DapToggleBreakpoint<CR>";
     options.desc = "Toggle breakpoint";
