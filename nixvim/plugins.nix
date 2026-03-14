@@ -37,6 +37,7 @@
   gitsigns = {
     enable = true;
     settings.current_line_blame = true;
+    settings.current_line_blame_opts.virt_text = false;
   };
 
   friendly-snippets.enable = true;
