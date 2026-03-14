@@ -32,6 +32,12 @@
     options.desc = "Exit terminal mode";
   }
   {
+    mode = "i";
+    key = "<Tab>";
+    action = "<C-t>";
+    options.desc = "Indent line";
+  }
+  {
     mode = "n";
     key = "<Tab>";
     action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/next-tab.lua";
