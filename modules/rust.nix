@@ -6,7 +6,7 @@
       pkg-config
       rustup
       gcc
-      lldb
+      vscode-extensions.vadimcn.vscode-lldb
     ];
 
     home.sessionVariables = {
@@ -22,10 +22,13 @@
 
       dap = {
         adapters = {
-          executables = {
-            "lldb" = {
-              # command = "${pkgs.lldb}/bin/lldb-dap";
-              command = "/nix/store/yx7x8kzpqjnkz8xvwvj7mvw6nw1k0b8w-lldb-21.1.7/bin/lldb-dap";
+          servers = {
+            "codelldb" = {
+              port = 13000;
+              executable = {
+                command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+                args = ["--port" "13000"];
+              };
             };
           };
         };
@@ -33,7 +36,7 @@
         configurations = {
           rust = [
             {
-              type = "lldb";
+              type = "codelldb";
               request = "launch";
               name = "Debug Rust";
               program = "\${workspaceFolder}/target/debug/\${workspaceFolderBasename}";
