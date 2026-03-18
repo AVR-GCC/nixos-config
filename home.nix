@@ -56,6 +56,9 @@
     enable = true;
     keyMode = "vi";
     terminal = "tmux-256color";
+    plugins = with pkgs.tmuxPlugins; [
+      resurrect
+    ];
     extraConfig = ''
       set -ga terminal-overrides ",*256col*:Tc"
 
@@ -66,6 +69,9 @@
       bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
       bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
       bind-key -T copy-mode-vi i send-keys -X cancel
+
+      set -g @resurrect-strategy-vim 'session'
+      set -g @resurrect-strategy-nvim 'session'
     '';
   };
 
