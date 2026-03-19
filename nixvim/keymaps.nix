@@ -2,6 +2,12 @@
 
 [
   {
+    mode = "n";
+    key = "<leader>s";
+    action = ":lua vim.diagnostic.open_float()<CR>";
+    options.desc = "Show diagnostic";
+  }
+  {
     mode = "i";
     key = "<Find>";
     action = "<Esc>^i";
