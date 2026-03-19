@@ -141,7 +141,7 @@
   }
   {
     mode = "n";
-    key = "<leader>o";
+    key = "<leader>ds";
     action = "<cmd>lua require('dap').step_over()<cr>";
     options = {
       desc = "DAP Step Over";
@@ -149,10 +149,18 @@
   }
   {
     mode = "n";
-    key = "<leader>i";
+    key = "<leader>di";
     action = "<cmd>lua require('dap').step_into()<cr>";
     options = {
       desc = "DAP Step Into";
+    };
+  }
+  {
+    mode = "n";
+    key = "<leader>dk";
+    action = "<cmd>lua require('dap').terminate()<cr>";
+    options = {
+      desc = "DAP Kill process";
     };
   }
 ]
