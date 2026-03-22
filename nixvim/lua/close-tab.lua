@@ -7,6 +7,8 @@ function()
   local is_empty = vim.fn.bufname() == '' and vim.fn.getbufvar(current, '&modified') == 0
   if is_empty and #buffers <= 1 then
     return
+  elseif is_terminal then
+    vim.cmd('wincmd k')
   elseif #buffers > 1 then
     local target
     for i, buf in ipairs(buffers) do
@@ -25,8 +27,5 @@ function()
   end
   vim.schedule(function()
     vim.cmd("bd! " .. current)
-    if is_terminal then
-      vim.cmd('close')
-    end
   end)
 end
