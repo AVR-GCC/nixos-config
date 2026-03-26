@@ -42,6 +42,7 @@
               program = "\${workspaceFolder}/target/debug/\${workspaceFolderBasename}";
               args = [];
               cwd = "\${workspaceFolder}";
+              sourceLanguages = ["rust"];
             }
           ];
         };
