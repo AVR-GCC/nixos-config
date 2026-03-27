@@ -1,11 +1,5 @@
 function()
-  local pane_id = require("check-ai-tab-open")()
-  if pane_id == "" then
-    require("open-ai-pane")()
-    vim.loop.sleep(2500)
-    -- Re-fetch the pane ID after opening
-    pane_id = require("check-ai-tab-open")()
-  end
+  local pane_id = require("confirm-ai-tab-open")()
   vim.cmd('normal! "+y')
 
   if vim.bo.buftype == "terminal" then
