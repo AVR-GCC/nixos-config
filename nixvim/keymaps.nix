@@ -3,6 +3,12 @@
 [
   {
     mode = "n";
+    key = "<leader>cai";
+    action.__raw = builtins.readFile "${builtins.getEnv "FLAKE_PATH"}/nixvim/lua/copy-diagnostic-to-ai.lua";
+    options.desc = "Open horizontal terminal";
+  }
+  {
+    mode = "n";
     key = "<leader>sr";
     action = ''
         <cmd>lua require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })<cr>
