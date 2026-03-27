@@ -64,6 +64,9 @@
       "<leader>fh" = "help_tags";
     };
   };
+  grug-far = {
+    enable = true;
+  };
 
   which-key.enable = true;
   alpha = import "${builtins.getEnv "FLAKE_PATH"}/nixvim/alpha.nix" {};

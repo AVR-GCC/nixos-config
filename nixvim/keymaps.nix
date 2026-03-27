@@ -3,6 +3,14 @@
 [
   {
     mode = "n";
+    key = "<leader>sr";
+    action = ''
+        <cmd>lua require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })<cr>
+    '';
+    options.desc = "Search and Replace (grug-far)";
+  }
+  {
+    mode = "n";
     key = "<leader>s";
     action = ":lua vim.diagnostic.open_float()<CR>";
     options.desc = "Show diagnostic";
