@@ -7,8 +7,10 @@ local f = ls.function_node
 
 local pr = s("pr", {
   t('println!("'),
-  i(1),
-  t(': {:?}", );')
+  f(function() return vim.fn.getreg("+") end, {}),
+  t(': {:?}", '),
+  f(function() return vim.fn.getreg("+") end, {}),
+  t(');')
 })
 
 local log = s("log", {
