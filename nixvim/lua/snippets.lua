@@ -25,11 +25,19 @@ local logg = s("logg", {
   t(");"),
 })
 
+local logj = s("logj", {
+  t("console.log('"),
+  f(function() return vim.fn.getreg("+") end, {}),
+  t("', JSON.stringify("),
+  f(function() return vim.fn.getreg("+") end, {}),
+  t(", null, 2));"),
+})
+
 a("all", { pr })
-a("javascript", { log, logg })
-a("javascriptreact", { log, logg })
-a("typescript", { log, logg })
-a("typescriptreact", { log, logg })
+a("javascript", { log, logj, logg })
+a("javascriptreact", { log, logj, logg })
+a("typescript", { log, logj, logg })
+a("typescriptreact", { log, logj, logg })
 
 -- Enable snippet expansion with a keybinding
 vim.keymap.set({ "i", "s" }, "<Tab>", function()
