@@ -17,7 +17,7 @@
   }
   {
     mode = "n";
-    key = "<leader>s";
+    key = "<leader>sd";
     action = ":lua vim.diagnostic.open_float()<CR>";
     options.desc = "Show diagnostic";
   }
