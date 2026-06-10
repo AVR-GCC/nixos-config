@@ -1,5 +1,5 @@
 return function(pane_id)
-  local filepath = vim.fn.expand("%")
+  local filepath = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
   local path = string.format("@%s", filepath)
   for i = 1, #path do
     local char = path:sub(i, i)
