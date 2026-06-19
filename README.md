@@ -40,6 +40,23 @@ All inputs follow `nixpkgs` to ensure a single consistent package set.
         └── toggle-ai-pane.lua   # Toggles opencode AI tmux pane
 ```
 
+## Bootstrap
+
+For a fresh NixOS installation, a `bootstrap.sh` script is provided to automate the initial setup. Place it on a flash drive alongside your bootable NixOS installation media. After installing NixOS, copy the script to the new system and run it:
+
+```sh
+./bootstrap.sh
+```
+
+The script will:
+
+1. Prompt you to add your SSH public key to GitHub (generate one beforehand if needed).
+2. Clone this repository into `~/workspace/nixos-config` using `nix run nixpkgs#git`.
+3. Create a `local.env` file with `FLAKE_PATH` and your Anthropic API key.
+4. Make `build.sh` executable and run it to build and apply the system configuration.
+
+This is the quickest way to go from a fresh NixOS install to a fully configured system.
+
 ## Setup
 
 ### Prerequisites
